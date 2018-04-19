@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Modules/RCTDevSettings.mm \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Modules/RCTDevSettings.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Modules/RCTJSCSamplingProfiler.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/DevSupport/RCTPackagerClient.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/mayurphadte/Desktop/Development/Final/MobiClassMakeSoil/node_modules/react-native/React/Inspector/RCTInspectorPackagerConnection.h
