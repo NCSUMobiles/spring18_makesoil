@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "484606101228",
+    "firebase_url": "https://makesoilvimd.firebaseio.com",
+    "project_id": "makesoilvimd",
+    "storage_bucket": "makesoilvimd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484606101228:android:2e5be807c29aa6d8",
+        "android_client_info": {
+          "package_name": "com.mobiclassmakesoil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484606101228-vbbdot29l6m3ili48pd22pbctkbi5g2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvI3yBpiDoekEzr3VfwLLsDT4rwwUFn8w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
