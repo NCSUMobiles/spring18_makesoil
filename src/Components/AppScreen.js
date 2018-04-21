@@ -34,15 +34,13 @@ class HostingScreen extends React.Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return null; // or render a loading icon
-    }
+    return(
+      <Card>
+        <CardSection>
+        </CardSection>
+      </Card>
+    );
   }
-
-  _signOutAsync = async () => {
-    auth.signOut();
-    this.props.navigation.navigate('Auth');
-  };
 }
 
 class SupportingScreen extends React.Component {
@@ -71,11 +69,6 @@ class SupportingScreen extends React.Component {
       </Card>
     );
   }
-
-  _signOutAsync = async () => {
-    auth.signOut();
-    this.props.navigation.navigate('Auth');
-  };
 }
 
 

@@ -4,6 +4,7 @@ import { auth} from "../config/firebase";
 import AuthLoadingScreen from '../Components/AuthLoadingScreen';
 import AuthScreen from '../Components/AuthScreen';
 import AppScreen from '../Components/AppScreen';
+import SoilSiteRequestJoinScreen from '../Components/SoilSiteRequestJoinScreen';
 import AppNavigation from '../Navigation/AppNavigation';
 import { StackNavigator, SwitchNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
 
@@ -11,6 +12,10 @@ const DrawerStack = DrawerNavigator(
   {
     Home: {
       screen: AppScreen
+    },
+    SoilSite:{
+      screen: SoilSiteRequestJoinScreen
+
     },
 
   },

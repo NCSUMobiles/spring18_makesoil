@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Apr 19 16:15:19 EDT 2018
+#Sat Apr 21 17:00:00 EDT 2018
 5.base=C\:\\Users\\Joey\\Documents\\CSC563\\spring18_makesoil\\android\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\0
 22.path=lib/armeabi/libicu_common.so
 32.set=ASSET

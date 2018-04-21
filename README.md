@@ -1,2 +1,2 @@
-# spring18_makesoil
-Visula Interfaces for Mobile Devices - Spring 2018 - Team : MakeSoil
+# MobiClassMakeSoil
+MakeSoil repository for Visual Interfaces or Mobile Devices at NC State.

@@ -7,18 +7,19 @@
     "test": "jest"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "react": "16.3.1",
-    "react-navigation": "^1.5.11",
+    "firebase": "^4.12.1",
+    "react": "^16.3.0-alpha.1",
     "react-native": "0.54.4",
-    "react-native-firebase": "^4.0.4"
+    "react-native-firebase": "^4.0.4",
+    "react-navigation": "^1.5.11",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "babel-jest": "22.4.3",
     "babel-preset-react-native": "4.0.0",
     "eslint-config-rallycoding": "^3.2.0",
     "jest": "22.4.3",
-    "react-test-renderer": "16.3.1"
+    "react-test-renderer": "^16.3.0-alpha.1"
   },
   "jest": {
     "preset": "react-native"
