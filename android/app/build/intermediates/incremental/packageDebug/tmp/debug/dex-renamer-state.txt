@@ -1,4 +1,0 @@
-#Sat Apr 21 17:00:00 EDT 2018
-base.0=C\:\\Users\\Joey\\Documents\\CSC563\\spring18_makesoil\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex
