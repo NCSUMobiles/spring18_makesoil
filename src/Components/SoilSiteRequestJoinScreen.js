@@ -24,14 +24,15 @@ export default class SoilSiteRequestJoin extends Component {
     }
     componentDidMount()
     {
+        const {params} = this.props.navigation.state;
         let url = "https://us-central1-makesoilvimd.cloudfunctions.net/soilSites"
         async function getData(){
             try{
                 let response  = await fetch(url);
                 let responseJson = await response.json();
-                console.log("Name: ",responseJson[4].name);
+                console.log("Name: ",responseJson[params.itemId].name);
                 //changeState(responseJson)
-                return responseJson[4];
+                return responseJson[params.itemId];
             }
             catch(error){
                 console.log("Error: ", error);

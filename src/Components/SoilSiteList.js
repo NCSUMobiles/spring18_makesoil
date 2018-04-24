@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ActivityIndicator,StatusBar, ScrollView, Text, View } from 'react-native';
 import axios from 'axios';
 import SiteItem from './SiteItem';
 
@@ -23,18 +23,18 @@ class SoilSiteList extends Component {
         </Text>
       );
 */
-    return this.state.sites.map((site) =>
+    return this.state.sites.map((site, i) =>
 
-        <SiteItem cellData={site}>
-        </SiteItem>
+        <SiteItem cellData={site} key={i} id={i} nav={this.props.navigation}/>
 
     );
   } else{
     console.log('Empty render');
     return (
-      <Text>
-        Loading
-      </Text>
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator/>
+        <StatusBar barStyle="default" />
+      </View>
     );
   }
   }
@@ -47,5 +47,14 @@ class SoilSiteList extends Component {
     );
   }
 }
+
+const styles = {
+  loadingContainer: {
+    flex: 1,
+    justifyContent:'center',
+    alignItems: 'center'
+  }
+};
+
 
 export default SoilSiteList;

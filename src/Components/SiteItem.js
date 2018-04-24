@@ -6,37 +6,39 @@ import Button from './common/Button';
 //import SoilSiteRequestJoin from './SoilSiteRequestJoin';
 
 class SiteItem extends Component {
-
-render() {
-    return (
-
-<TouchableHighlight onPress={() =>{
-          console.log('Hello');
-        }}>
-      <View style={styles.containerStyle}>
-
-        <View style={styles.container1Style}>
-          <View style={styles.thumbnailContainerStyle}>
-            <Image
-              style={styles.thumbnailStyle}
-              source={{ uri: this.props.cellData.imageURL }}
-            />
-          </View>
-          <View style={styles.headerContentStyle}>
-            <Text style={styles.headerTextStyle}>{this.props.cellData.name}</Text>
-            <Text>{this.props.cellData.city}, {this.props.cellData.state}</Text>
-            <Text style={styles.supporterStyle}>Supporters : {this.props.cellData.supporters}</Text>
-            <Text style={styles.distanceStyle}>2 mi.</Text>
-          </View>
-        </View>
-
-      </View>
-
-</TouchableHighlight>
-
-
-    );
+  _navigate(){
+    this.props.nav.navigate('SoilSite',{itemId: this.props.id});
   }
+
+
+  render() {
+        return (
+          <TouchableHighlight
+            onPress={() => this._navigate()}>
+            <View style={styles.containerStyle}>
+
+              <View style={styles.container1Style}>
+                <View style={styles.thumbnailContainerStyle}>
+                  <Image
+                    style={styles.thumbnailStyle}
+                    source={{ uri: this.props.cellData.imageURL }}
+                  />
+                </View>
+                <View style={styles.headerContentStyle}>
+                  <Text style={styles.headerTextStyle}>{this.props.cellData.name}</Text>
+                  <Text>{this.props.cellData.city}, {this.props.cellData.state}</Text>
+                  <Text style={styles.supporterStyle}>Supporters : {this.props.cellData.supporters}</Text>
+                  <Text style={styles.distanceStyle}>2 mi.</Text>
+                </View>
+              </View>
+
+            </View>
+
+          </TouchableHighlight>
+
+
+        );
+    }
 }
 const styles = StyleSheet.create({
   container1Style: {

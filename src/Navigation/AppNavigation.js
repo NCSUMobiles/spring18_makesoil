@@ -10,16 +10,30 @@ import SoilSiteList from '../Components/SoilSiteList';
 import AppNavigation from '../Navigation/AppNavigation';
 import { StackNavigator, SwitchNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
 
+
+const SoilSiteStack = StackNavigator(
+  {
+    SoilSites: {
+      screen: SoilSiteList
+    },
+    SoilSite: {
+      screen: SoilSiteRequestJoinScreen
+    }
+  },
+  {
+    navigationOptions: ({navigation}) => ({
+      title: 'Soil Sites',
+    }),
+  }
+);
+
 const DrawerStack = DrawerNavigator(
   {
     Home: {
       screen: AppScreen
     },
     MySoilSites: {
-      screen: SoilSiteList
-    },
-    SoilSite: {
-      screen: SoilSiteRequestJoinScreen
+      screen: SoilSiteStack
     },
     Account: {
       screen: AccountScreen
