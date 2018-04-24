@@ -124,6 +124,7 @@ class AccountScreen extends React.Component {
             value={this.state.currentPassword}
             onChangeText={(value) => this.setState({currentPassword: value})}
             onSubmitEditing={() => this.verifyPassword()}
+            autoCapitalize="none"
           />
           <Button
             onPress={() => this.verifyPassword()}
@@ -142,6 +143,7 @@ class AccountScreen extends React.Component {
               value={this.state.newEmail}
               onChangeText={(value) => this.setState({newEmail: value})}
               onSubmitEditing={() => this.updateEmail()}
+              autoCapitalize="none"
             />
             <Button
               onPress={() => this.updateEmail()}
@@ -154,12 +156,14 @@ class AccountScreen extends React.Component {
               secureTextEntry
               value={this.state.newPassword}
               onChangeText={(value) => this.setState({newPassword: value})}
+              autoCapitalize="none"
             />
             <Text>Confirm password</Text>
             <TextInput
               secureTextEntry
               value={this.state.newPasswordRepeat}
               onChangeText={(value) => this.setState({newPasswordRepeat: value})}
+              autoCapitalize="none"
             />
             <Button
               onPress={() => this.updatePassword()}

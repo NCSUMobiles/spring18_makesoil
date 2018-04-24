@@ -126,10 +126,10 @@ const styles = StyleSheet.create({
     },
     text: {
         flexDirection: 'row',
-        height: 20,
-        padding: 25,
+        padding: 5,
         backgroundColor: 'lightgreen',
-        fontSize: 18
+        fontSize: 18,
+        color: 'black'
       },
     title: {
         color: 'maroon',
