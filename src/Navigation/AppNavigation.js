@@ -22,18 +22,18 @@ const SoilSiteStack = StackNavigator(
   },
   {
     navigationOptions: ({navigation}) => ({
-      title: 'Soil Sites',
+      title: 'Soil Sites Near You',
     }),
   }
 );
 
 const DrawerStack = DrawerNavigator(
   {
-    Home: {
-      screen: AppScreen
+    NearSoilSites: {
+      screen: SoilSiteStack
     },
     MySoilSites: {
-      screen: SoilSiteStack
+      screen: AppScreen
     },
     Account: {
       screen: AccountScreen
