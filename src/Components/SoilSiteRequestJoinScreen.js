@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, Image,View, ScrollView, TextInput, Button, StyleSheet} from 'react-native';
 import { Header, Card, CardSection, Input, Spinner } from './common';
+import { auth} from "../config/firebase";
 
 export default class SoilSiteRequestJoin extends Component {
 
