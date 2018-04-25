@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { TextInput, Text, Image,  View, TouchableOpacity, KeyboardAvoidingView, Dimensions  } from 'react-native';
+import { TextInput, Text, Image,  View, TouchableOpacity, KeyboardAvoidingView, Dimensions, WebView } from 'react-native';
 import { auth } from "../config/firebase";
 import { LabelInput, Input, Spinner, Card, Button} from './common';
 import { TabNavigator, TabBarBottom} from 'react-navigation';
 import logo from '../Icons/compost.png';
 import background from '../Background/authBackground.jpg';
+import Widget from '../external/widget/about_us.html'
 
 class LoginScreen extends React.Component {
   state = { email: '', password: '', error: '', loading: false };
@@ -167,6 +168,14 @@ class SignupScreen extends React.Component {
   }
 }
 
+class Aboutus extends React.Component {
+  render() {
+      return (
+        <WebView source={Widget} scalesPageToFit/>
+      );
+    }
+}
+
 const window = Dimensions.get('window');
 const styles = {
   containerStyle: {
@@ -199,6 +208,7 @@ export default TabNavigator(
   {
     Login: { screen: LoginScreen },
     Signup: { screen: SignupScreen },
+    About: {screen: Aboutus}
   },
   {
     navigationOptions: ({ navigation }) => ({
