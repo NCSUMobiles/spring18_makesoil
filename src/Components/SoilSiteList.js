@@ -2,11 +2,28 @@ import React, { Component } from 'react';
 import { ActivityIndicator,StatusBar, ScrollView, Text, View } from 'react-native';
 import axios from 'axios';
 import SiteItem from './SiteItem';
+import { auth} from "../config/firebase";
 
 
 class SoilSiteList extends Component {
   state = { sites: null };
+  componentWillMount(){
+    this.authSubscription = auth.onAuthStateChanged((user) => {
+      this.setState({
+        loading: false,
+        user,
+      });
+      if (!user) {
+        this.props.navigation.navigate('Auth');
+      }
+    });
 
+  }
+
+
+  componentWillUnmount(){
+    this.authSubscription();
+  }
 
   componentDidMount() {
     axios.get('https://us-central1-makesoilvimd.cloudfunctions.net/soilSites')

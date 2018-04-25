@@ -4,6 +4,7 @@ import Card from './common/Card';
 import CardSection from './common/CardSection';
 import Button from './common/Button';
 //import SoilSiteRequestJoin from './SoilSiteRequestJoin';
+import { auth} from "../config/firebase";
 
 class SiteItem extends Component {
   _navigate(){
