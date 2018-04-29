@@ -2,6 +2,8 @@ import React, { Component} from 'react';
 import { View, StyleSheet, Text, SafeAreaView, ScrollView, TouchableHighlight, Image} from 'react-native';
 import { auth} from "../config/firebase";
 import AuthLoadingScreen from '../Components/AuthLoadingScreen';
+import HomeScreen from '../Components/HomeScreen';
+import AboutUsScreen from '../Components/AboutUsScreen';
 import AuthScreen from '../Components/AuthScreen';
 import AppScreen from '../Components/AppScreen';
 import AccountScreen from '../Components/AccountScreen';
@@ -97,11 +99,13 @@ const AuthStack = StackNavigator(
 
 export default SwitchNavigator(
   {
+    Home: HomeScreen,
+    AboutUs: AboutUsScreen,
     AuthLoading: AuthLoadingScreen,
     App: AppStack,
     Auth: AuthStack,
   },
   {
-    initialRouteName: 'AuthLoading',
+    initialRouteName: 'Home',
   }
 );
