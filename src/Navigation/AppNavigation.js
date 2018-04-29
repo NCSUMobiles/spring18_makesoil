@@ -11,7 +11,7 @@ import SoilSiteRequestJoinScreen from '../Components/SoilSiteRequestJoinScreen';
 import SoilSiteList from '../Components/SoilSiteList';
 import AppNavigation from '../Navigation/AppNavigation';
 import { StackNavigator, SwitchNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
-
+import { HeaderBackButton } from 'react-navigation';
 
 const SoilSiteStack = StackNavigator(
   {
@@ -92,20 +92,40 @@ const AuthStack = StackNavigator(
       title: 'MAKE:SOIL',
       headerStyle: { backgroundColor: '#212529' },
       headerTintColor: '#28a745',
+      headerLeft: <HeaderBackButton onPress={() => navigation.navigate('Home')} tintColor="#fff"/>,
       headerTitleStyle: { fontWeight: 'bold' },
     })
   }
 );
 
+const HomeStack = StackNavigator(
+  { HomeScreen: { screen: HomeScreen }
+  }
+);
+
+const AboutUsStack = StackNavigator(
+  { AboutUsScreen: { screen: AboutUsScreen } },
+  {
+    navigationOptions: ({navigation}) => ({
+      title: 'MAKE:SOIL',
+      headerStyle: { backgroundColor: '#212529' },
+      headerTintColor: '#28a745',
+      headerLeft: <HeaderBackButton onPress={() => navigation.navigate('Home')} tintColor="#fff"/>,
+      headerTitleStyle: { fontWeight: 'bold' },
+    })
+  }
+);
+
+
 export default SwitchNavigator(
   {
-    Home: HomeScreen,
-    AboutUs: AboutUsScreen,
+    Home: HomeStack,
+    AboutUs: AboutUsStack,
     AuthLoading: AuthLoadingScreen,
     App: AppStack,
     Auth: AuthStack,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'AuthLoading',
   }
 );
