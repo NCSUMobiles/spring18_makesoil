@@ -31,3 +31,13 @@ export default class MakeSoilSite extends Component{
 			);
 	}
 }
+
+
+const styles = StyleSheet.create({
+    container:{
+      justifyContent: 'center',
+      marginTop: 50,
+      padding: 20,
+      backgroundColor: '#ffffff',
+    }
+  });
