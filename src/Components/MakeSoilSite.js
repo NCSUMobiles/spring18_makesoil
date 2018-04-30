@@ -14,3 +14,20 @@ const SoilMaker = t.struct({
 	What_are_not_accepted: t.String,	
 	terms: t.Boolean
 });
+
+export default class MakeSoilSite extends Component{
+	render()
+	{
+		return(
+			<View style={styles.container}>
+				<Text>
+					Welcome! You can create a soil site here
+				</Text>
+				<Form type={SoilMaker}/>
+					<Button
+						title="Create Site"
+					/>
+			</View>	
+			);
+	}
+}
