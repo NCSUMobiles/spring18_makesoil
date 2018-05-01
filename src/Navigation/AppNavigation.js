@@ -13,6 +13,13 @@ import { StackNavigator, SwitchNavigator, DrawerNavigator, DrawerItems } from 'r
 import { HeaderBackButton } from 'react-navigation';
 import hamburgerIcon from '../Icons/hamburger.png';
 
+var HeaderOptions = {
+    title: 'MAKE:SOIL',
+    headerStyle: { backgroundColor: '#212529' },
+    headerTintColor: '#28a745',
+    headerTitleStyle: { fontWeight: 'bold' }
+};
+
 const SoilSiteStack = StackNavigator(
     {
         SoilSites: {
@@ -21,11 +28,14 @@ const SoilSiteStack = StackNavigator(
         SoilSite: {
             screen: SoilSiteRequestJoinScreen
         }
-    },
+    }
+);
+
+const AccountStack = StackNavigator(
     {
-        navigationOptions: () => ({
-            title: 'Soil Sites Near You',
-        }),
+        Account: {
+            screen: AccountScreen
+        }
     }
 );
 
@@ -38,9 +48,8 @@ const DrawerStack = DrawerNavigator(
             screen: AppScreen
         },
         Account: {
-            screen: AccountScreen
+            screen: AccountStack
         },
-
     },
 
     {
@@ -50,7 +59,7 @@ const DrawerStack = DrawerNavigator(
                     <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
                         <DrawerItems {...props} />
                         <Text style={{textAlign:'left'}} onPress={() => auth.signOut()}>
-                  LOGOUT
+                            LOGOUT
                         </Text>
                     </SafeAreaView>
                 </ScrollView>
@@ -67,10 +76,7 @@ const AppStack = StackNavigator(
     },
     {
         navigationOptions: ({navigation}) => ({
-            title: 'MAKE:SOIL',
-            headerStyle: { backgroundColor: '#212529' },
-            headerTintColor: '#28a745',
-            headerTitleStyle: { fontWeight: 'bold' },
+            ...HeaderOptions,
             headerRight: (
                 <TouchableHighlight onPress={() => navigation.navigate('DrawerToggle')}>
                     <Image
@@ -86,21 +92,20 @@ const AppStack = StackNavigator(
         })
     }
 );
+
 const AuthStack = StackNavigator(
     { Login: AuthScreen },
     {
         navigationOptions: ({navigation}) => ({
-            title: 'MAKE:SOIL',
-            headerStyle: { backgroundColor: '#212529' },
-            headerTintColor: '#28a745',
+            ...HeaderOptions,
             headerLeft: <HeaderBackButton onPress={() => navigation.navigate('Home')} tintColor="#fff"/>,
-            headerTitleStyle: { fontWeight: 'bold' },
         })
     }
 );
 
 const HomeStack = StackNavigator(
-    { HomeScreen: { screen: HomeScreen }
+    {
+        HomeScreen: { screen: HomeScreen }
     }
 );
 
@@ -108,11 +113,8 @@ const AboutUsStack = StackNavigator(
     { AboutUsScreen: { screen: AboutUsScreen } },
     {
         navigationOptions: ({navigation}) => ({
-            title: 'MAKE:SOIL',
-            headerStyle: { backgroundColor: '#212529' },
-            headerTintColor: '#28a745',
+            ...HeaderOptions,
             headerLeft: <HeaderBackButton onPress={() => navigation.navigate('Home')} tintColor="#fff"/>,
-            headerTitleStyle: { fontWeight: 'bold' },
         })
     }
 );

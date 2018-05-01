@@ -1,10 +1,14 @@
 import React from 'react';
 // import { Text, Image, View, ScrollView, TextInput, Button, StyleSheet} from 'react-native';
 import { ScrollView, TextInput, Text, View } from 'react-native';
-import { Header, Button } from './common';
+import { Button } from './common';
 import { auth } from '../config/firebase';
 
 class AccountScreen extends React.Component {
+
+    static navigationOptions = {
+        title: 'Manage Your Account'
+    };
 
     constructor(props){
         super(props);
@@ -106,8 +110,7 @@ class AccountScreen extends React.Component {
     render()
     {
         return (
-            <ScrollView>
-                <Header headerText="Manage Your Account"/>
+            <ScrollView style={styles.containerStyle}>
                 <Text style={styles.successText}>{this.state.success}</Text>
                 <Text style={styles.errorText}>{this.state.error}</Text>
                 { this.state.authorizedUser ? this.accountManagementForm() : this.passwordEntryForm() }
@@ -176,6 +179,10 @@ class AccountScreen extends React.Component {
 }
 
 const styles = {
+    containerStyle: {
+        padding: 10
+    },
+
     errorText: {
         fontSize: 20,
         alignSelf: 'center',

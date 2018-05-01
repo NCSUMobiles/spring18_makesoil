@@ -3,6 +3,10 @@ import { Text, ScrollView, Button, StyleSheet} from 'react-native';
 
 export default class SoilSiteRequestJoin extends Component {
 
+    static navigationOptions = ({ navigation }) => ({
+        title: navigation.state.params.data.name
+    });
+
     constructor(props){
         super(props);
         this.state = {
@@ -21,31 +25,17 @@ export default class SoilSiteRequestJoin extends Component {
             zip: null
         };
     }
+
     componentDidMount()
     {
-        const {params} = this.props.navigation.state;
-        let url = 'https://us-central1-makesoilvimd.cloudfunctions.net/soilSites';
-
-        fetch(url)
-            .then(response => response.json())
-            .then(responseJson => {
-                console.log('Name: ',responseJson[params.itemId].name);
-                return responseJson[params.itemId];
-            })
-            .then(result => {
-                console.log('This is what I received in promise: ', result);
-                self.setState(result);
-            })
-            .catch(error => console.log('Error: ', error));
+        const data = this.props.navigation.state.params.data;
+        this.setState(data);
     }
 
     render()
     {
         return(
             <ScrollView>
-                <Text style = {styles.title}>
-                    {this.state.name}
-                </Text>
                 <Text style = {styles.label}>
                 Status
                 </Text>

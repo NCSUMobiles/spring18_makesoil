@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Text, Image,View, Button, StyleSheet, Dimensions, ImageBackground, TouchableHighlight, Linking} from 'react-native';
 
@@ -15,7 +14,7 @@ export default class LandingPage extends Component {
     navigate(page) {
         this.props.navigation.navigate(page);
     }
-  
+
     render() {
         return (
             <View>

@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableHighlight, Image } from 'react-native';
 
 class SiteItem extends Component {
-    _navigate(){
-        this.props.nav.navigate('SoilSite',{itemId: this.props.id});
-    }
 
+    _navigate(){
+        this.props.nav.navigate('SoilSite', { data: this.props.cellData, title: this.props.cellData.name });
+    }
 
     render() {
         return (
             <TouchableHighlight
                 onPress={() => this._navigate()}>
                 <View style={styles.containerStyle}>
-
                     <View style={styles.container1Style}>
                         <View style={styles.thumbnailContainerStyle}>
                             <Image
@@ -27,12 +26,8 @@ class SiteItem extends Component {
                             <Text style={styles.distanceStyle}>2 mi.</Text>
                         </View>
                     </View>
-
                 </View>
-
             </TouchableHighlight>
-
-
         );
     }
 }

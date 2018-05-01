@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { ActivityIndicator,StatusBar, ScrollView, View } from 'react-native';
-import axios from 'axios';
 import SiteItem from './SiteItem';
 import { auth} from '../config/firebase';
 
 
 class SoilSiteList extends Component {
+
+    static navigationOptions = {
+        title: 'Soil Sites Near You'
+    };
+
     constructor(props) {
         super(props);
         this.state = { sites: null };
     }
-  
+
     componentWillMount(){
         this.authSubscription = auth.onAuthStateChanged((user) => {
             this.setState({
@@ -21,23 +25,22 @@ class SoilSiteList extends Component {
                 this.props.navigation.navigate('Auth');
             }
         });
-
     }
-
 
     componentWillUnmount(){
         this.authSubscription();
     }
 
     componentDidMount() {
-        axios.get('https://us-central1-makesoilvimd.cloudfunctions.net/soilSites')
-            .then(response => this.setState({ sites: response.data }));
+        fetch('https://us-central1-makesoilvimd.cloudfunctions.net/soilSites')
+            .then(response => response.json())
+            .then(responseJson => this.setState({ sites: responseJson }));
     }
 
     renderSites() {
         if (this.state.sites != null) {
-            return this.state.sites.map((site, i) =>
-                <SiteItem cellData={site} key={i} id={i} nav={this.props.navigation}/>
+            return this.state.sites.map((site, index) =>
+                <SiteItem cellData={site} key={index} nav={this.props.navigation}/>
             );
         } else {
             return (

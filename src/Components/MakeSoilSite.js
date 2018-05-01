@@ -11,7 +11,7 @@ const SoilMaker = t.struct({
     address: t.String,
     description: t.String,
     What_are_accepted: t.String,
-    What_are_not_accepted: t.String,	
+    What_are_not_accepted: t.String,
     terms: t.Boolean
 });
 
@@ -27,7 +27,7 @@ export default class MakeSoilSite extends Component{
                 <Button
                     title="Create Site"
                 />
-            </View>	
+            </View>
         );
     }
 }
