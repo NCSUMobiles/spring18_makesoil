@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Image,View, ScrollView, TextInput, Button, StyleSheet} from 'react-native';
-import { Header, Card, CardSection, Input, Spinner } from './common';
-import { auth} from "../config/firebase";
+import { Text, ScrollView, Button, StyleSheet} from 'react-native';
 
 export default class SoilSiteRequestJoin extends Component {
 
@@ -21,53 +19,32 @@ export default class SoilSiteRequestJoin extends Component {
             street: null,
             supporters: null,
             zip: null
-        }
+        };
     }
     componentDidMount()
     {
         const {params} = this.props.navigation.state;
-        let url = "https://us-central1-makesoilvimd.cloudfunctions.net/soilSites"
-        async function getData(){
-            try{
-                let response  = await fetch(url);
-                let responseJson = await response.json();
-                console.log("Name: ",responseJson[params.itemId].name);
-                //changeState(responseJson)
+        let url = 'https://us-central1-makesoilvimd.cloudfunctions.net/soilSites';
+
+        fetch(url)
+            .then(response => response.json())
+            .then(responseJson => {
+                console.log('Name: ',responseJson[params.itemId].name);
                 return responseJson[params.itemId];
-            }
-            catch(error){
-                console.log("Error: ", error);
-            }
-        }
-        var self = this;
-        var promise = getData();
-        var returnedresult = null;
-        promise.then(function(result){
-            console.log("This is what I received in promise: ",result);
-            self.setState({
-                additionalInfo: result.additionalInfo,
-                allowedMaterial:  result.allowedMaterial,
-                imageURL: result.imageURL,
-                city:  result.city,
-                disallowedMaterial:  result.disallowedMaterial,
-                instructions: result.instructions,
-                makers:  result.makers,
-                name: result.name,
-                openToStatus: result.openToStatus,
-                state: result.state,
-                street: result.street,
-                supporters: result.supporters,
-                zip: result.zip
-            });
-        });
+            })
+            .then(result => {
+                console.log('This is what I received in promise: ', result);
+                self.setState(result);
+            })
+            .catch(error => console.log('Error: ', error));
     }
+
     render()
     {
-
         return(
             <ScrollView>
                 <Text style = {styles.title}>
-                {this.state.name}
+                    {this.state.name}
                 </Text>
                 <Text style = {styles.label}>
                 Status
@@ -100,19 +77,16 @@ export default class SoilSiteRequestJoin extends Component {
                     {this.state.supporters}
                 </Text>
                 <Button
-                title = "Go to Message Board"
-                style = {styles.button}/>
+                    title = "Go to Message Board"
+                    style = {styles.button}/>
 
                 <Button
-                title = "Request to Join"
-                style = {{flex:1, width: 20, height: 50, backgroundColor: 'blue'}}/>
+                    title = "Request to Join"
+                    style = {{flex:1, width: 20, height: 50, backgroundColor: 'blue'}}/>
 
                 <Button
-                title = "Manage Soil Site"
-                style = {{flex:1, width: 20, height: 50, backgroundColor: 'blue'}}/>
-                {/* <TextInput
-                placeholder = ""
-                /> */}
+                    title = "Manage Soil Site"
+                    style = {{flex:1, width: 20, height: 50, backgroundColor: 'blue'}}/>
             </ScrollView>
         );
 
@@ -121,10 +95,10 @@ export default class SoilSiteRequestJoin extends Component {
 
 const styles = StyleSheet.create({
     button: {
-      color: 'blue',
-      flex: 1,
-      width: 20,
-      height: 50
+        color: 'blue',
+        flex: 1,
+        width: 20,
+        height: 50
     },
     text: {
         flexDirection: 'row',
@@ -132,16 +106,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'lightgreen',
         fontSize: 18,
         color: 'black'
-      },
+    },
     title: {
         color: 'maroon',
         fontSize: 22,
         alignSelf: 'center',
         fontWeight: 'bold'
-      },
+    },
     label: {
         color: 'black',
         fontSize: 22,
         alignSelf: 'center'
     },
-  });
+});

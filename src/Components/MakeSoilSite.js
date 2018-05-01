@@ -7,37 +7,37 @@ import t from 'tcomb-form-native';
 const Form = t.form.Form;
 
 const SoilMaker = t.struct({
-	owner_name: t.String,
-	address: t.String,
-	description: t.String,
-	What_are_accepted: t.String,
-	What_are_not_accepted: t.String,	
-	terms: t.Boolean
+    owner_name: t.String,
+    address: t.String,
+    description: t.String,
+    What_are_accepted: t.String,
+    What_are_not_accepted: t.String,	
+    terms: t.Boolean
 });
 
 export default class MakeSoilSite extends Component{
-	render()
-	{
-		return(
-			<View style={styles.container}>
-				<Text>
+    render()
+    {
+        return(
+            <View style={styles.container}>
+                <Text>
 					Welcome! You can create a soil site here
-				</Text>
-				<Form type={SoilMaker}/>
-					<Button
-						title="Create Site"
-					/>
-			</View>	
-			);
-	}
+                </Text>
+                <Form type={SoilMaker}/>
+                <Button
+                    title="Create Site"
+                />
+            </View>	
+        );
+    }
 }
 
 
 const styles = StyleSheet.create({
     container:{
-      justifyContent: 'center',
-      marginTop: 50,
-      padding: 20,
-      backgroundColor: '#ffffff',
+        justifyContent: 'center',
+        marginTop: 50,
+        padding: 20,
+        backgroundColor: '#ffffff',
     }
-  });
+});
