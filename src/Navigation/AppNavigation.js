@@ -39,6 +39,13 @@ const AccountStack = StackNavigator(
     }
 );
 
+// This one is for embedding in drawer navigators
+const AboutUsPage = StackNavigator({
+    Main: {
+        screen: AboutUsScreen
+    }
+});
+
 const DrawerStack = DrawerNavigator(
     {
         NearSoilSites: {
@@ -50,6 +57,9 @@ const DrawerStack = DrawerNavigator(
         Account: {
             screen: AccountStack
         },
+        About: {
+            screen: AboutUsPage
+        }
     },
 
     {
@@ -58,7 +68,7 @@ const DrawerStack = DrawerNavigator(
                 <ScrollView>
                     <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
                         <DrawerItems {...props} />
-                        <Text style={{textAlign:'left', marginLeft: 16}} onPress={() => auth.signOut()}>
+                        <Text style={{textAlign:'left', marginLeft: 16}} onPress={() => auth.currentUser && auth.signOut()}>
                             Log out
                         </Text>
                     </SafeAreaView>
@@ -78,11 +88,11 @@ const AppStack = StackNavigator(
         navigationOptions: ({navigation}) => ({
             ...HeaderOptions,
             headerRight: (
-                <TouchableHighlight onPress={() => navigation.navigate('DrawerToggle')}>
+                <TouchableHighlight style={{padding: 5}} onPress={() => navigation.navigate('DrawerToggle')}>
                     <Image
                         style={{
-                            width: 51,
-                            height: 51,
+                            width: 50,
+                            height: 50,
                             resizeMode: Image.resizeMode.contain,
                         }}
                         source={hamburgerIcon}
@@ -104,7 +114,7 @@ const AuthStack = StackNavigator(
 );
 
 const AboutUsStack = StackNavigator(
-    { AboutUsScreen: { screen: AboutUsScreen } },
+    { AboutUs: { screen: AboutUsScreen } },
     {
         navigationOptions: ({navigation}) => ({
             ...HeaderOptions,
@@ -112,7 +122,6 @@ const AboutUsStack = StackNavigator(
         })
     }
 );
-
 
 export default SwitchNavigator(
     {
@@ -123,6 +132,6 @@ export default SwitchNavigator(
         Auth: AuthStack,
     },
     {
-        initialRouteName: 'AuthLoading',
+        initialRouteName: 'AuthLoading'
     }
 );

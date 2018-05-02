@@ -140,11 +140,12 @@ export default TabNavigator(
     },
     {
         tabBarOptions: {
-            activeTintColor: '#403f61',
-            inactiveTintColor: '#e5e5e5',
+            activeTintColor: '#000',
+            inactiveTintColor: '#f7fcf8',
             labelStyle: {
-                fontSize: 24,
-                paddingBottom: 7
+                fontSize: 20,
+                paddingBottom: 7,
+                fontWeight: 'bold'
             },
             style:{
                 justifyContent:'center',

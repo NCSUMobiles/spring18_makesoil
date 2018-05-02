@@ -21,7 +21,7 @@ export default class MakeSoilSite extends Component{
         return(
             <View style={styles.container}>
                 <Text>
-					Welcome! You can create a soil site here
+                    Welcome! You can create a soil site here
                 </Text>
                 <Form type={SoilMaker}/>
                 <Button

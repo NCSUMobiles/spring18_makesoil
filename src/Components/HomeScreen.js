@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Image,View, StyleSheet, Dimensions, ImageBackground, TouchableOpacity, Linking} from 'react-native';
 import { Button, Card } from './common';
+import { auth } from '../config/firebase';
 
 import backgroundImage from './assets/soil1_2.jpg';
 import instagramIcon from './assets/instagram.png';
@@ -34,7 +35,7 @@ export default class LandingPage extends Component {
                 <Card>
                     <Button
                         label = "Start Making Soil"
-                        onPress = { () => this.navigate('Auth') }
+                        onPress = { () => auth.currentUser ? this.navigate('App') : this.navigate('Auth') }
                     />
                     <Button
                         label = "About"
@@ -71,7 +72,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     iconBox: {
-        padding: 5,
         borderRadius: 10,
         display: 'flex',
         flexDirection: 'row',
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'lightgrey'
     },
     iconContainer: {
-        margin: 10
+        margin: 8
     },
     icon: {
         width: 60,

@@ -66,19 +66,17 @@ class Button extends React.Component {
 
 const styles = {
     text: {
-        color: '#fff',
+        color: '#f7fcf8',
         fontSize: 24,
-        fontWeight: '600',
-        paddingLeft:10,
-        paddingRight:10,
-        paddingTop:5,
-        paddingBottom:5,
+        fontWeight: '500',
     },
     button: {
-        padding: 8,
+        paddingVertical: 6,
+        paddingHorizontal: 12,
         borderRadius: 15,
-        borderColor: '#007aff',
-        // backgroundColor set on the fly
+        borderColor: '#2f703a',
+        borderWidth: 2
+        // backgroundColor set dynamically
     },
     container: {
         alignItems: 'center',

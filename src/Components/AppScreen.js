@@ -29,9 +29,7 @@ class HostingScreen extends React.Component {
                 this.props.navigation.navigate('Auth');
             }
         });
-
     }
-
 
     componentWillUnmount(){
         this.authSubscription();
@@ -84,17 +82,17 @@ export default TabNavigator(
     },
     {
         tabBarOptions: {
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
+            activeTintColor: '#000',
+            inactiveTintColor: '#f7fcf8',
             labelStyle: {
-                fontSize: 24,
+                fontSize: 20,
+                paddingBottom: 7,
+                fontWeight: 'bold'
             },
             style:{
                 justifyContent:'center',
                 alignItems:'center',
-                backgroundColor:'transparent',
-                borderTopWidth:1,
-                borderTopColor:'#D3D3D3'
+                backgroundColor: '#b0b0b0'
             }
         },
         tabBarComponent: TabBarBottom,
