@@ -48,11 +48,11 @@ const AboutUsPage = StackNavigator({
 
 const DrawerStack = DrawerNavigator(
     {
-        NearSoilSites: {
-            screen: SoilSiteStack
-        },
         MySoilSites: {
             screen: AppScreen
+        },
+        NearSoilSites: {
+            screen: SoilSiteStack
         },
         Account: {
             screen: AccountStack
@@ -68,7 +68,11 @@ const DrawerStack = DrawerNavigator(
                 <ScrollView>
                     <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
                         <DrawerItems {...props} />
-                        <Text style={{textAlign:'left', marginLeft: 16}} onPress={() => auth.currentUser && auth.signOut()}>
+                        <Text style={{textAlign:'left', marginLeft: 16}} onPress={() => {
+                            if (auth.currentUser)
+                                auth.signOut();
+                            props.navigation.navigate('Home');
+                        }}>
                             Log out
                         </Text>
                     </SafeAreaView>

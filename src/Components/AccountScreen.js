@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import { Button, Input, Form, ErrorText } from './common';
 import { auth } from '../config/firebase';
 
@@ -107,17 +107,13 @@ class AccountScreen extends React.Component {
     }
 
     render() {
-        return (
-            <View>
-                <ErrorText text={this.state.error} />
-                { this.state.authorizedUser ? this.accountManagementForm() : this.passwordEntryForm() }
-            </View>
-        );
+        return this.state.authorizedUser ? this.accountManagementForm() : this.passwordEntryForm();
     }
 
     passwordEntryForm() {
         return (
             <Form>
+                <ErrorText text={this.state.error} />
                 <Input
                     label="Enter your current password"
                     secure={true}
@@ -135,6 +131,7 @@ class AccountScreen extends React.Component {
     accountManagementForm() {
         return (
             <Form>
+                <ErrorText text={this.state.error} />
                 <Input
                     label="Update your email"
                     value={this.state.newEmail}

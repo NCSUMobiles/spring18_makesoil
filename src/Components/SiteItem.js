@@ -9,40 +9,28 @@ class SiteItem extends Component {
 
     render() {
         return (
-            <TouchableHighlight
-                onPress={() => this._navigate()}>
-                <View style={styles.containerStyle}>
-                    <View style={styles.container1Style}>
-                        <View style={styles.thumbnailContainerStyle}>
-                            <Image
-                                style={styles.thumbnailStyle}
-                                source={{ uri: this.props.cellData.imageURL }}
-                            />
-                        </View>
-                        <View style={styles.headerContentStyle}>
-                            <Text style={styles.headerTextStyle}>{this.props.cellData.name}</Text>
-                            <Text>{this.props.cellData.city}, {this.props.cellData.state}</Text>
-                            <Text style={styles.supporterStyle}>Supporters : {this.props.cellData.supporters}</Text>
-                            <Text style={styles.distanceStyle}>2 mi.</Text>
-                        </View>
+            <TouchableHighlight style={styles.highlight} onPress={() => this._navigate()}>
+                <View style={styles.container}>
+                    <View style={styles.thumbnailContainer}>
+                        <Image
+                            style={styles.thumbnail}
+                            source={{ uri: this.props.cellData.imageURL }}
+                        />
                     </View>
+                    <View style={styles.header}>
+                        <Text style={styles.headerText}>{this.props.cellData.name}</Text>
+                        <Text>{this.props.cellData.city}, {this.props.cellData.state}</Text>
+                        <Text style={styles.supporter}>Supporters : {this.props.cellData.supporters}</Text>
+                    </View>
+                    <Text style={styles.distance}>2 mi.</Text>
                 </View>
             </TouchableHighlight>
         );
     }
 }
 const styles = StyleSheet.create({
-    container1Style: {
-        borderBottomWidth: 1,
-        padding: 5,
-        backgroundColor: '#fff',
-        justifyContent: 'flex-start',
-        flexDirection: 'row',
-        borderColor: '#ddd',
-        position: 'relative'
-    },
-    containerStyle: {
-        borderWidth: 1,
+    highlight: {
+        flex: 1,
         borderRadius: 2,
         borderColor: '#ddd',
         borderBottomWidth: 0,
@@ -54,50 +42,43 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         marginRight: 5,
         marginTop: 10,
-        backgroundColor: '#5cad14',
         flexDirection:'column',
         alignItems: 'center',
         justifyContent: 'center',
     },
-    distanceStyle:{
-        alignSelf: 'flex-end'
+    container: {
+        padding: 5,
+        borderBottomWidth: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        borderColor: '#ddd',
+        position: 'relative'
     },
-    supporterStyle: {
+    header: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        marginLeft: 10
+    },
+    headerText: {
+        fontSize: 20
+    },
+    supporter: {
         marginTop: 5,
         fontSize: 12
     },
-    headerContentStyle: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-evenly'
+    distance:{
+        alignSelf: 'flex-end'
     },
-    headerTextStyle: {
-        fontSize: 20
+    thumbnailContainer: {
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    thumbnailStyle: {
+    thumbnail: {
         height: 100,
         width: 100
-    },
-    thumbnailContainerStyle: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 10,
-        marginRight: 10
-    },
-    imageStyle: {
-        height: 300,
-        flex: 1,
-        width: null
-    },
-    demo:{
-        flex: 1
-    },
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+    }
 });
 
 export default SiteItem;

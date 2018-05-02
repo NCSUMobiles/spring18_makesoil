@@ -40,9 +40,12 @@ class Button extends React.Component {
             });
     }
 
-    _getColor() {
+    _getColorOverrides() {
         const alpha = this.state.pressed || this.state.disabled ? '.5' : '1';
-        return `rgba(92, 181, 107, ${alpha})`;
+        return {
+            backgroundColor: `rgba(92, 181, 107, ${alpha})`,
+            borderColor: `rgba(47, 112, 58, ${alpha})`
+        };
     }
 
     render() {
@@ -53,7 +56,7 @@ class Button extends React.Component {
                     onPressOut={() => this._onPressOut()}
                     onPress={val => this._onPress(val)}
                 >
-                    <View style={{...styles.button, backgroundColor: this._getColor()}}>
+                    <View style={{...styles.button, ...this._getColorOverrides()}}>
                         <Text style={styles.text}>
                             {this.props.label}
                         </Text>
@@ -67,20 +70,19 @@ class Button extends React.Component {
 const styles = {
     text: {
         color: '#f7fcf8',
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: '500',
     },
     button: {
         paddingVertical: 6,
         paddingHorizontal: 12,
         borderRadius: 15,
-        borderColor: '#2f703a',
         borderWidth: 2
-        // backgroundColor set dynamically
+        // Colors set dynamically
     },
     container: {
         alignItems: 'center',
-        marginBottom: 15
+        marginBottom: 12
     }
 };
 

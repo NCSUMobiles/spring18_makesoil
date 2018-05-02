@@ -1,20 +1,19 @@
 import React from 'react';
-import { KeyboardAvoidingView } from 'react-native';
+import { ScrollView } from 'react-native';
 
 const Form = (props) =>
     (
-        <KeyboardAvoidingView style={styles.containerStyle}>
+        <ScrollView contentContainerStyle={styles.container}>
             {props.children}
-        </KeyboardAvoidingView >
+        </ScrollView >
     );
 
-
 const styles = {
-    containerStyle: {
+    container: {
         padding: 20,
         flexDirection:'column',
         alignItems: 'stretch',
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
     }
 };
 

@@ -1,5 +1,19 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, Button, StyleSheet} from 'react-native';
+import { Text, ScrollView, StyleSheet, View } from 'react-native';
+import { Button } from './common';
+
+
+const KeyValue = ({label, value}) => (
+    <View style={styles.keyValue}>
+        <Text style={styles.label}>
+            {label + ':'}
+        </Text>
+        <Text style={styles.text}>
+            {value}
+        </Text>
+    </View>
+);
+
 
 export default class SoilSiteRequestJoin extends Component {
 
@@ -35,48 +49,19 @@ export default class SoilSiteRequestJoin extends Component {
     render()
     {
         return(
-            <ScrollView>
-                <Text style = {styles.label}>
-                Status
-                </Text>
-                <Text style = {styles.text}>
-                    {this.state.openToStatus}
-                </Text>
-                <Text style = {styles.label}>
-                Accepted Material
-                </Text>
-                <Text style = {styles.text}>
-                    {this.state.allowedMaterial}
-                </Text>
-                <Text style = {styles.label}>
-                Material Not Allowed
-                </Text>
-                <Text style = {styles.text}>
-                    {this.state.disallowedMaterial}
-                </Text>
-                <Text style = {styles.label}>
-                Soil Makers
-                </Text>
-                <Text style = {styles.text}>
-                    {this.state.makers}
-                </Text>
-                <Text style = {styles.label}>
-                Soil Supporters
-                </Text>
-                <Text style = {styles.text}>
-                    {this.state.supporters}
-                </Text>
-                <Button
-                    title = "Go to Message Board"
-                    style = {styles.button}/>
-
-                <Button
-                    title = "Request to Join"
-                    style = {{flex:1, width: 20, height: 50, backgroundColor: 'blue'}}/>
-
-                <Button
-                    title = "Manage Soil Site"
-                    style = {{flex:1, width: 20, height: 50, backgroundColor: 'blue'}}/>
+            <ScrollView contentContainerStyle={styles.container}>
+                <View style={styles.buttonContainer}>
+                    <Button label="Manage Soil Site" onPress={() => {}}/>
+                    <Button label="Request to Join" onPress={() => {}}/>
+                    <Button label="Go to Message Board" onPress={() => {}}/>
+                </View>
+                <View style={styles.infoContainer}>
+                    <KeyValue label="Status" value={this.state.openToStatus} />
+                    <KeyValue label="Accepted Materials" value={this.state.allowedMaterial} />
+                    <KeyValue label="Materials Not Accepted" value={this.state.disallowedMaterial} />
+                    <KeyValue label="Number of Makers" value={this.state.makers} />
+                    <KeyValue label="Number of Supporters" value={this.state.supporters} />
+                </View>
             </ScrollView>
         );
 
@@ -84,28 +69,35 @@ export default class SoilSiteRequestJoin extends Component {
 }
 
 const styles = StyleSheet.create({
-    button: {
-        color: 'blue',
-        flex: 1,
-        width: 20,
-        height: 50
+    container: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        padding: 20
     },
-    text: {
+    buttonContainer: {
         flexDirection: 'row',
-        padding: 5,
-        backgroundColor: 'lightgreen',
-        fontSize: 18,
-        color: 'black'
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        alignContent: 'space-between'
     },
-    title: {
-        color: 'maroon',
-        fontSize: 22,
-        alignSelf: 'center',
-        fontWeight: 'bold'
+    infoContainer: {
+        justifyContent: 'space-between',
+        alignContent: 'flex-start'
+    },
+    keyValue: {
+        marginBottom: 12
     },
     label: {
         color: 'black',
-        fontSize: 22,
-        alignSelf: 'center'
+        fontSize: 18
     },
+    text: {
+        flexDirection: 'row',
+        backgroundColor: 'lightgrey',
+        color: 'black',
+        paddingVertical: 8,
+        paddingHorizontal: 6,
+        fontSize: 16,
+        borderRadius: 6
+    }
 });

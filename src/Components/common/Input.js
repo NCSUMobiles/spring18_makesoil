@@ -23,12 +23,11 @@ class Input extends React.Component {
 const styles = {
     input: {
         backgroundColor: '#fff',
-        fontSize: 18,
+        alignSelf: 'stretch',
+        fontSize: 18
     },
     label: {
-        fontSize: 18,
-        // paddingLeft: 20,
-        // flex: 1
+        fontSize: 18
     },
     containerStyle: {
         display: 'flex',

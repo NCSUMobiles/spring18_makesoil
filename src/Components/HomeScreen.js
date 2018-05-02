@@ -53,24 +53,6 @@ export default class LandingPage extends Component {
 }
 
 const styles = StyleSheet.create({
-    button: {
-        color: 'blue',
-        flex: 1,
-        width: 20,
-        height: 50
-    },
-    text: {
-        flexDirection: 'row',
-        backgroundColor: 'lightgreen',
-        height: 20,
-        padding: 25,
-        fontSize: 18
-    },
-    label: {
-        color: 'black',
-        fontSize: 22,
-        alignSelf: 'center'
-    },
     iconBox: {
         borderRadius: 10,
         display: 'flex',
