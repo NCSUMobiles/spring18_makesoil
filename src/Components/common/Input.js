@@ -1,51 +1,38 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize }) => {
-    const { inputStyle, inputContainerStyle, labelStyle, containerStyle } = styles;
-
-    return (
-        <View style={containerStyle}>
-            <Text style={labelStyle}>{label}</Text>
-            <View style={inputContainerStyle}>
+class Input extends React.Component {
+    render() {
+        return (
+            <View style={styles.containerStyle}>
+                <Text style={styles.label}>{this.props.label}</Text>
                 <TextInput
-                    secureTextEntry={secureTextEntry}
-                    placeholder={placeholder}
-                    autoCorrect={false}
-                    style={inputStyle}
-                    value={value}
-                    onChangeText={onChangeText}
-                    autoCapitalize={autoCapitalize}
+                    secureTextEntry={this.props.secure || false}
+                    style={styles.input}
+                    value={this.props.value}
+                    onChangeText={this.props.onChange}
+                    onSubmitEditing={this.props.onSubmit}
+                    autoCapitalize="none"
+                    keyboardType={this.props.type || 'default'}
                 />
             </View>
-        </View>
-    );
-};
+        );
+    }
+}
 
 const styles = {
-    inputStyle: {
-        color: '#fff',
-        paddingRight: 20,
-        paddingLeft: 20,
+    input: {
+        backgroundColor: '#fff',
         fontSize: 18,
-        flex: 1,
-        opacity: 1,
     },
-    inputContainerStyle: {
-        flex:1,
-        flexDirection:'row'
-    },
-    labelStyle: {
+    label: {
         fontSize: 18,
-        paddingLeft: 20,
-        flex: 1
+        // paddingLeft: 20,
+        // flex: 1
     },
     containerStyle: {
-        height: 40,
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent:'center',
+        display: 'flex',
+        marginBottom: 15
     }
 };
 

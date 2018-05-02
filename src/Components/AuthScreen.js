@@ -1,9 +1,8 @@
 import React from 'react';
-import { TextInput, Text, Image,  View, Dimensions } from 'react-native';
+import { View } from 'react-native';
 import { auth } from '../config/firebase';
-import { Card, Button} from './common';
-import { TabNavigator, TabBarBottom} from 'react-navigation';
-import background from '../Background/authBackground.jpg';
+import { Button, Input, Form, ErrorText } from './common';
+import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 class LoginScreen extends React.Component {
 
@@ -17,7 +16,7 @@ class LoginScreen extends React.Component {
         this.setState({ error: '', loading: true });
 
         if (email && password){
-            auth.signInAndRetrieveDataWithEmailAndPassword(email, password)
+            return auth.signInAndRetrieveDataWithEmailAndPassword(email, password)
                 .then(this.onLoginSuccess.bind(this))
                 .catch(this.onLoginFail.bind(this));
         } else {
@@ -41,41 +40,23 @@ class LoginScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.containerStyle}>
-                <View style={styles.backgroundStyle}>
-                    <Image
-                        style={{
-                            flex: 1,
-                            resizeMode: 'cover',
-                        }}
-                        source={background}
-                    />
-                </View>
-                <Card style={styles.loginContainerStyle} behavior="padding">
-                    <TextInput
-                        placeholder="email"
-                        label='Email: '
+            <View>
+                <Form>
+                    <Input
+                        label='Email:'
                         value={this.state.email}
-                        onChangeText={email => this.setState({ email })}
-                        keyboardType='email-address'
-                        autoCapitalize="none"
-                        style={styles.loginBoxInputStyle}
+                        onChange={email => this.setState({ email })}
+                        type='email-address'
                     />
-                    <TextInput
-                        secureTextEntry
-                        placeholder="password"
+                    <Input
+                        label='Password:'
                         value={this.state.password}
-                        onChangeText={password => this.setState({ password })}
-                        autoCapitalize="none"
-                        style={styles.loginBoxInputStyle}
+                        secure={true}
+                        onChange={password => this.setState({ password })}
                     />
-                    <View style={{backgroundColor:'white'}}>
-                        <Text style={styles.errorTextStyle}>
-                            {this.state.error}
-                        </Text>
-                    </View>
-                    <Button onPress={this.onButtonPress.bind(this)} label="LOGIN"/>
-                </Card>
+                    <ErrorText text={this.state.error}/>
+                    <Button onPress={this.onButtonPress.bind(this)} label="Login"/>
+                </Form>
             </View>
         );
     }
@@ -93,11 +74,11 @@ class SignupScreen extends React.Component {
         this.setState({ error: '', loading: true });
 
         if (email && password && this.checkPasswordMatch()){
-            auth.createUserWithEmailAndPassword(email, password)
+            return auth.createUserWithEmailAndPassword(email, password)
                 .then(this.onLoginSuccess.bind(this))
                 .catch(this.onLoginFail.bind(this));
         } else {
-            this.onPasswordMisMatch();
+            this.onPasswordMismatch();
         }
     }
 
@@ -105,11 +86,11 @@ class SignupScreen extends React.Component {
         return this.state.password === this.state.confirmPassword;
     }
 
-    onPasswordMisMatch(){
+    onPasswordMismatch(){
         this.setState({ error: 'Password doesn\'t match', loading: false });
     }
     onLoginFail() {
-        this.setState({ error: 'Authentication Failed', loading: false });
+        this.setState({ error: 'Failed to create user.', loading: false });
     }
 
     onLoginSuccess() {
@@ -124,81 +105,33 @@ class SignupScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.containerStyle}>
-                <View style={styles.backgroundStyle}>
-                    <Image
-                        style={{
-                            flex: 1,
-                            resizeMode: 'cover',
-                        }}
-                        source={background}
-                    />
-                </View>
-                <Card>
-                    <TextInput
-                        placeholder="email"
-                        value={this.state.email}
-                        onChangeText={email => this.setState({ email })}
-                        keyboardType='email-address'
-                        autoCapitalize="none"
-                        style={styles.loginBoxInputStyle}
-                    />
-                    <TextInput
-                        secureTextEntry
-                        placeholder="password"
-                        value={this.state.password}
-                        onChangeText={password => this.setState({ password })}
-                        autoCapitalize="none"
-                        style={styles.loginBoxInputStyle}
-                    />
-                    <TextInput
-                        secureTextEntry
-                        placeholder="confirm password"
-                        value={this.state.confirmPassword}
-                        onChangeText={confirmPassword => this.setState({ confirmPassword })}
-                        autoCapitalize="none"
-                        style={styles.loginBoxInputStyle}
-                    />
-                    <View style={{backgroundColor:'white'}}>
-                        <Text style={styles.errorTextStyle}>
-                            {this.state.error}
-                        </Text>
-                    </View>
-                    <Button onPress={this.onButtonPress.bind(this)} label="SIGNUP"/>
-                </Card>
-            </View>
+            <Form>
+                <Input
+                    label='Email:'
+                    value={this.state.email}
+                    onChange={email => this.setState({ email })}
+                    type='email-address'
+                />
+                <Input
+                    label='Password:'
+                    value={this.state.password}
+                    secure={true}
+                    onChange={password => this.setState({ password })}
+                />
+
+                <Input
+                    label='Confirm password:'
+                    value={this.state.confirmPassword}
+                    secure={true}
+                    onChange={confirmPassword => this.setState({ confirmPassword })}
+                />
+
+                <ErrorText text={this.state.error}/>
+                <Button onPress={this.onButtonPress.bind(this)} label="Signup"/>
+            </Form>
         );
     }
 }
-
-
-const window = Dimensions.get('window');
-const styles = {
-    containerStyle: {
-        backgroundColor: 'transparent',
-        flex:1,
-        justifyContent:'center'
-    },
-    backgroundStyle: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        opacity: 0.7,
-    },
-    errorTextStyle: {
-        fontSize: 20,
-        alignSelf: 'center',
-        color: '#ff6666'
-    },
-    loginBoxInputStyle: {
-        backgroundColor: '#fff',
-        marginHorizontal: 10,
-        marginVertical: 5,
-        width: window.width - 30,
-    },
-};
 
 export default TabNavigator(
     {
@@ -207,19 +140,21 @@ export default TabNavigator(
     },
     {
         tabBarOptions: {
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
+            activeTintColor: '#403f61',
+            inactiveTintColor: '#e5e5e5',
             labelStyle: {
                 fontSize: 24,
+                paddingBottom: 7
             },
             style:{
                 justifyContent:'center',
                 alignItems:'center',
+                backgroundColor: '#b0b0b0'
             }
         },
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'top',
-        animationEnabled: false,
-        swipeEnabled: false,
+        animationEnabled: true,
+        swipeEnabled: true,
     }
 );

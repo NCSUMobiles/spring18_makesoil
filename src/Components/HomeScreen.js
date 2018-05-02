@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, Image,View, Button, StyleSheet, Dimensions, ImageBackground, TouchableHighlight, Linking} from 'react-native';
+import { Image,View, StyleSheet, Dimensions, ImageBackground, TouchableOpacity, Linking} from 'react-native';
+import { Button, Card } from './common';
 
 import backgroundImage from './assets/soil1_2.jpg';
 import instagramIcon from './assets/instagram.png';
@@ -9,6 +10,18 @@ import twitterIcon from './assets/twitter.png';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
+const IconBox = (props) => (
+    <View style={styles.iconBox}>
+        {props.children}
+    </View>
+);
+
+const Icon = ({link, source}) => (
+    <TouchableOpacity onPress={ () => Linking.openURL(link) } style={styles.iconContainer}>
+        <Image source={source} style={styles.icon} />
+    </TouchableOpacity>
+);
+
 export default class LandingPage extends Component {
 
     navigate(page) {
@@ -17,38 +30,23 @@ export default class LandingPage extends Component {
 
     render() {
         return (
-            <View>
-                <ImageBackground source={backgroundImage} style = {styles.image} blurRadius={7}>
-                    <Text style = {styles.title}>
-          Why treat the planet like garbage? {'\n'} Make Soil{'\n'}{'\n'}{'\n'}{'\n'}
-                    </Text>
+            <ImageBackground source={backgroundImage} style={styles.image} blurRadius={7}>
+                <Card>
                     <Button
-                        title = "Login or Sign Up"
+                        label = "Start Making Soil"
                         onPress = { () => this.navigate('Auth') }
-                        style = {{flex:1, width: 20, height: 50, backgroundColor: 'blue'}}/>
+                    />
                     <Button
-                        title = "About"
+                        label = "About"
                         onPress = { () => this.navigate('AboutUs') }
-                        style = {{flex:1, width: 20, height: 50, backgroundColor: 'blue'}}/>
-                    <View style={{flex:1, flexDirection: 'row', alignSelf: 'center'}}>
-                        <TouchableHighlight onPress={ () => { Linking.openURL('https://instagram.com/makesoil');}}>
-                            <Image
-                                source={instagramIcon} style = {styles.icons}
-                            />
-                        </TouchableHighlight>
-                        <TouchableHighlight onPress={() => { Linking.openURL('https://facebook.com/makesoil');}}>
-                            <Image
-                                source={facebookIcon} style = {styles.icons}
-                            />
-                        </TouchableHighlight>
-                        <TouchableHighlight onPress={() => { Linking.openURL('https://twitter.com/makesoil');}}>
-                            <Image
-                                source={twitterIcon} style = {styles.icons}
-                            />
-                        </TouchableHighlight>
-                    </View>
-                </ImageBackground>
-            </View>
+                    />
+                    <IconBox>
+                        <Icon source={instagramIcon} link='https://instagram.com/makesoil' />
+                        <Icon source={facebookIcon} link='https://facebook.com/makesoil' />
+                        <Icon source={twitterIcon} link='https://twitter.com/makesoil' />
+                    </IconBox>
+                </Card>
+            </ImageBackground>
         );
     }
 }
@@ -62,29 +60,30 @@ const styles = StyleSheet.create({
     },
     text: {
         flexDirection: 'row',
+        backgroundColor: 'lightgreen',
         height: 20,
         padding: 25,
-        backgroundColor: 'lightgreen',
         fontSize: 18
-    },
-    title: {
-        color: 'navajowhite',
-        fontSize: 22,
-        alignSelf: 'center',
-        fontWeight: 'bold',
-        width: 300,
-        height: 100
     },
     label: {
         color: 'black',
         fontSize: 22,
         alignSelf: 'center'
     },
-    icons: {
+    iconBox: {
+        padding: 5,
+        borderRadius: 10,
+        display: 'flex',
+        flexDirection: 'row',
+        alignSelf: 'center',
+        backgroundColor: 'lightgrey'
+    },
+    iconContainer: {
+        margin: 10
+    },
+    icon: {
         width: 60,
-        height: 60,
-        paddingLeft: 10,
-        paddingRight: 25
+        height: 60
     },
     image: {
         width: windowWidth,

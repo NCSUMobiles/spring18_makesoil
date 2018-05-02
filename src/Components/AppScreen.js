@@ -4,6 +4,11 @@ import { Card, CardSection } from './common';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 class HostingScreen extends React.Component {
+
+    static navigationOptions = {
+        title: 'My Soil Sites'
+    };
+
     constructor() {
         super();
         this.state = {

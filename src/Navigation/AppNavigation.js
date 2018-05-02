@@ -58,8 +58,8 @@ const DrawerStack = DrawerNavigator(
                 <ScrollView>
                     <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
                         <DrawerItems {...props} />
-                        <Text style={{textAlign:'left'}} onPress={() => auth.signOut()}>
-                            LOGOUT
+                        <Text style={{textAlign:'left', marginLeft: 16}} onPress={() => auth.signOut()}>
+                            Log out
                         </Text>
                     </SafeAreaView>
                 </ScrollView>
@@ -103,12 +103,6 @@ const AuthStack = StackNavigator(
     }
 );
 
-const HomeStack = StackNavigator(
-    {
-        HomeScreen: { screen: HomeScreen }
-    }
-);
-
 const AboutUsStack = StackNavigator(
     { AboutUsScreen: { screen: AboutUsScreen } },
     {
@@ -122,7 +116,7 @@ const AboutUsStack = StackNavigator(
 
 export default SwitchNavigator(
     {
-        Home: HomeStack,
+        Home: HomeScreen,
         AboutUs: AboutUsStack,
         AuthLoading: AuthLoadingScreen,
         App: AppStack,
