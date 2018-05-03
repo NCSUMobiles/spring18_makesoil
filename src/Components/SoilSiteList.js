@@ -7,7 +7,7 @@ import { auth} from '../config/firebase';
 class SoilSiteList extends Component {
 
     static navigationOptions = {
-        title: 'Soil Sites Near You'
+        title: 'Nearby Soil Sites'
     };
 
     constructor(props) {

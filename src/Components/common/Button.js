@@ -70,14 +70,15 @@ class Button extends React.Component {
 const styles = {
     text: {
         color: '#f7fcf8',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: '500',
     },
     button: {
         paddingVertical: 6,
         paddingHorizontal: 12,
-        borderRadius: 15,
-        borderWidth: 2
+        borderRadius: 6,
+        borderWidth: 1,
+        elevation: 2
         // Colors set dynamically
     },
     container: {

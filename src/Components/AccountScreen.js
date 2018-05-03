@@ -136,7 +136,6 @@ class AccountScreen extends React.Component {
                     label="Update your email"
                     value={this.state.newEmail}
                     onChange={(value) => this.setState({newEmail: value})}
-                    onSubmit={() => this.updateEmail()}
                     type="email-address"
                 />
                 <Button

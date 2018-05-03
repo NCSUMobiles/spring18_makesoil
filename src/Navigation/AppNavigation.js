@@ -61,19 +61,18 @@ const DrawerStack = DrawerNavigator(
             screen: AboutUsPage
         }
     },
-
     {
         contentComponent: (props => (
             <View style={{flex:1}}>
                 <ScrollView>
                     <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
                         <DrawerItems {...props} />
-                        <Text style={{textAlign:'left', marginLeft: 16}} onPress={() => {
+                        <Text style={{textAlign:'left', marginLeft: 16, marginTop: 8}} onPress={() => {
                             if (auth.currentUser)
                                 auth.signOut();
                             props.navigation.navigate('Home');
                         }}>
-                            Log out
+                            Log Out
                         </Text>
                     </SafeAreaView>
                 </ScrollView>
@@ -82,7 +81,6 @@ const DrawerStack = DrawerNavigator(
         drawerPosition: 'right',
     }
 );
-
 
 const AppStack = StackNavigator(
     {

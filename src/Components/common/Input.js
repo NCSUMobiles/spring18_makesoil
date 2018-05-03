@@ -11,7 +11,6 @@ class Input extends React.Component {
                     style={styles.input}
                     value={this.props.value}
                     onChangeText={this.props.onChange}
-                    onSubmitEditing={this.props.onSubmit}
                     autoCapitalize="none"
                     keyboardType={this.props.type || 'default'}
                     multiline={false}

@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     headerText: {
-        fontSize: 20
+        fontSize: 20,
+        color: "#232323"
     },
     supporter: {
         marginTop: 5,

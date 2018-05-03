@@ -141,7 +141,7 @@ export default TabNavigator(
     {
         tabBarOptions: {
             activeTintColor: '#000',
-            inactiveTintColor: '#f7fcf8',
+            inactiveTintColor: '#909090',
             labelStyle: {
                 fontSize: 20,
                 paddingBottom: 7,
@@ -150,7 +150,8 @@ export default TabNavigator(
             style:{
                 justifyContent:'center',
                 alignItems:'center',
-                backgroundColor: '#b0b0b0'
+                backgroundColor: '#fff',
+                elevation: 5
             }
         },
         tabBarComponent: TabBarBottom,

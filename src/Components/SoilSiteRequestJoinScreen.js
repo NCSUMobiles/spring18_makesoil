@@ -93,11 +93,13 @@ const styles = StyleSheet.create({
     },
     text: {
         flexDirection: 'row',
-        backgroundColor: 'lightgrey',
-        color: 'black',
+        backgroundColor: '#d9d9d9',
+        color: '#212121',
         paddingVertical: 8,
         paddingHorizontal: 6,
         fontSize: 16,
-        borderRadius: 6
+        borderRadius: 6,
+        borderWidth: 1,
+        borderColor: "#d1cfcf"
     }
 });
