@@ -14,6 +14,7 @@ class Input extends React.Component {
                     onSubmitEditing={this.props.onSubmit}
                     autoCapitalize="none"
                     keyboardType={this.props.type || 'default'}
+                    multiline={false}
                 />
             </View>
         );

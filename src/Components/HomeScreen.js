@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image,View, StyleSheet, Dimensions, ImageBackground, TouchableOpacity, Linking} from 'react-native';
+import { Image, View, StyleSheet, Dimensions, ImageBackground, TouchableOpacity, Linking} from 'react-native';
 import { Button, Card } from './common';
 import { auth } from '../config/firebase';
 
@@ -7,9 +7,6 @@ import backgroundImage from './assets/soil1_2.jpg';
 import instagramIcon from './assets/instagram.png';
 import facebookIcon from './assets/facebook.png';
 import twitterIcon from './assets/twitter.png';
-
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
 const IconBox = (props) => (
     <View style={styles.iconBox}>
@@ -29,9 +26,17 @@ export default class LandingPage extends Component {
         this.props.navigation.navigate(page);
     }
 
+    _screenDimensions() {
+        const window = Dimensions.get('window')
+        return {
+            width: window.width,
+            height: window.height
+        }
+    }
+
     render() {
         return (
-            <ImageBackground source={backgroundImage} style={styles.image} blurRadius={7}>
+            <ImageBackground source={backgroundImage} style={{...styles.background, ...this._screenDimensions()}} >
                 <Card>
                     <Button
                         label = "Start Making Soil"
@@ -52,7 +57,7 @@ export default class LandingPage extends Component {
     }
 }
 
-const styles = StyleSheet.create({
+const styles = {
     iconBox: {
         borderRadius: 10,
         display: 'flex',
@@ -67,9 +72,7 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60
     },
-    image: {
-        width: windowWidth,
-        height: windowHeight,
+    background: {
         justifyContent: 'space-evenly',
     }
-});
+};
