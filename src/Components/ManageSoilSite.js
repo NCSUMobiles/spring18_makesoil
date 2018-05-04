@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, StyleSheet,Text} from 'react-native';
+import {ScrollView, StyleSheet, Text} from 'react-native';
 import { Button } from 'react-native';
 
 import t from 'tcomb-form-native';
@@ -19,7 +19,7 @@ export default class ManageSoilSite extends Component{
 	render()
 	{
 		return(
-			<View style={styles.container}>
+			<ScrollView contentContainerStyle={styles.contentContainer}>
 				<Text>
 				     You can edit the requirements of your soil site here
 				</Text>
@@ -27,7 +27,7 @@ export default class ManageSoilSite extends Component{
 					<Button
 						title="Edit Site"
 					/>
-			</View>	
+			</ScrollView>	
 			);
 	}
 }
