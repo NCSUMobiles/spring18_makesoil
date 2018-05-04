@@ -46,12 +46,17 @@ export default class SoilSiteRequestJoin extends Component {
         this.setState(data);
     }
 
+    FuctionToOpenManageSoilSiteActivity = () =>
+    {
+        this.props.navigation.navigate('ManageSoilSite');
+    }
+
     render()
     {
         return(
             <ScrollView contentContainerStyle={styles.container}>
                 <View style={styles.buttonContainer}>
-                    <Button label="Manage Soil Site" onPress={() => {}}/>
+                    <Button label="Manage Soil Site" onPress={this.FuctionToOpenManageSoilSiteActivity}/>
                     <Button label="Request to Join" onPress={() => {}}/>
                     <Button label="Go to Message Board" onPress={() => {}}/>
                 </View>

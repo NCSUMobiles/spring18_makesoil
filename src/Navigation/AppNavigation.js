@@ -9,6 +9,7 @@ import AppScreen from '../Components/AppScreen';
 import AccountScreen from '../Components/AccountScreen';
 import SoilSiteRequestJoinScreen from '../Components/SoilSiteRequestJoinScreen';
 import SoilSiteList from '../Components/SoilSiteList';
+import ManageSoilSite from '../Components/ManageSoilSite';
 import { StackNavigator, SwitchNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
 import { HeaderBackButton } from 'react-navigation';
 import hamburgerIcon from '../Icons/hamburger.png';
@@ -27,6 +28,9 @@ const SoilSiteStack = StackNavigator(
         },
         SoilSite: {
             screen: SoilSiteRequestJoinScreen
+        },
+        ManageSoilSite: {
+            screen: ManageSoilSite
         }
     }
 );
