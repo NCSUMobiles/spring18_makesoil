@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {ScrollView, StyleSheet, Text} from 'react-native';
 import { Button } from 'react-native';
+import Toast, {DURATION} from 'react-native-easy-toast';
 
 import t from 'tcomb-form-native';
 
@@ -24,9 +25,10 @@ export default class ManageSoilSite extends Component{
 				     You can edit the requirements of your soil site here
 				</Text>
 				<Form type={SoilMaker}/>
-					<Button
-						title="Edit Site"
-					/>
+					<Button	title="Edit Site" onPress={()=> {
+                        this.refs.toast.show('hello world!',DURATION.SHORT);
+                    }}/>
+                <Toast ref = "toast"/>    
 			</ScrollView>	
 			);
 	}
