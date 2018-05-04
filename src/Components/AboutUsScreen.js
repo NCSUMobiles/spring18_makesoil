@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import { Card, Button } from './common';
 import { auth } from '../config/firebase';
 
@@ -30,7 +30,7 @@ class AboutUsScreen extends React.Component {
 
     render() {
         return (
-            <Card>
+            <ScrollView>
                 <Section label="How it works">
                     <Paragraph>
                         MakeSoil matches people who make soil at home with neighbors who contribute their food scraps and waste.
@@ -66,7 +66,7 @@ class AboutUsScreen extends React.Component {
                     undefined :
                     <Button label="Let's get started" onPress={() => this.props.navigation.navigate('Auth')}/>
                 }
-            </Card>
+            </ScrollView>
         );
     }
 }
