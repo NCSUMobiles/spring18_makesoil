@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, ScrollView, StyleSheet, View } from 'react-native';
 import { Button } from './common';
+import Toast, {DURATION} from 'react-native-easy-toast';
 
 
 const KeyValue = ({label, value}) => (
@@ -57,7 +58,13 @@ export default class SoilSiteRequestJoin extends Component {
             <ScrollView contentContainerStyle={styles.container}>
                 <View style={styles.buttonContainer}>
                     <Button label="Manage Soil Site" onPress={this.FuctionToOpenManageSoilSiteActivity}/>
-                    <Button label="Request to Join" onPress={() => {}}/>
+                    <Button label="Request to Join" onPress={()=> {
+                        this.refs.toast.show('Your request has been sent!',DURATION.LONG);
+                    }}/>
+                    <Toast 
+                        ref = "toast"
+                        position = 'top'
+                    /> 
                     <Button label="Go to Message Board" onPress={() => {}}/>
                 </View>
                 <View style={styles.infoContainer}>

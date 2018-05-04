@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {ScrollView, StyleSheet, Text} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import { Button } from './common';
 import Toast, {DURATION} from 'react-native-easy-toast';
 
@@ -20,16 +20,21 @@ export default class ManageSoilSite extends Component{
 	render()
 	{
 		return(
-			<ScrollView contentContainerStyle={styles.contentContainer}>
-				<Text>
+            <View contentContainerStyle={styles.Container}>
+                <Text h2>
 				     You can edit the requirements of your soil site here
-				</Text>
-				<Form type={SoilMaker}/>
-					<Button	label="Edit Site" onPress={()=> {
-                        this.refs.toast.show('Your site has been edited!',DURATION.SHORT);
+			    </Text>                
+			    <ScrollView style={styles.contentContainer}>
+				    <Form type={SoilMaker}/>   
+                    <Button	label="Edit Site" onPress={()=> {
+                        this.refs.toast.show('Your site has been edited!',DURATION.LONG);
                     }}/>
-                <Toast ref = "toast"/>    
-			</ScrollView>	
+                    <Toast 
+                        ref = "toast"
+                        position = 'center'
+                    /> 
+			    </ScrollView>	               
+            </View>
 			);
 	}
 }
@@ -40,5 +45,12 @@ const styles = StyleSheet.create({
     marginTop: 50,
     padding: 20,
     backgroundColor: '#ffffff',
+  },
+  Container:{
+    justifyContent: 'center',
+    marginTop: 50,
+    padding: 20,
+    marginBottom: 20,
+    backgroundColor: '#ffffff', 
   }
 });
