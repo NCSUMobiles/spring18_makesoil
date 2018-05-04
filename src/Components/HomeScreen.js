@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, View, StyleSheet, Dimensions, ImageBackground, TouchableOpacity, Linking} from 'react-native';
+import { Image, View, Dimensions, ImageBackground, TouchableOpacity, Linking} from 'react-native';
 import { Button, Card } from './common';
 import { auth } from '../config/firebase';
 
@@ -27,11 +27,11 @@ export default class LandingPage extends Component {
     }
 
     _screenDimensions() {
-        const window = Dimensions.get('window')
+        const window = Dimensions.get('window');
         return {
             width: window.width,
             height: window.height
-        }
+        };
     }
 
     render() {

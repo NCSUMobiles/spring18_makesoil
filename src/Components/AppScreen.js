@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScrollView, View, ActivityIndicator, StatusBar } from 'react-native';
 import { auth } from '../config/firebase';
-import { Card, CardSection } from './common';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import SiteItem from './SiteItem';
 

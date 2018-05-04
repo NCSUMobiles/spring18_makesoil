@@ -44,13 +44,22 @@ class AboutUsScreen extends React.Component {
                 </Section>
                 <Section label="Our Mission">
                     <Paragraph>
-                        Earth has problems. Sprawling landfills are one. Topsoil depletion is another.
+                        Earth has problems. Sprawling landfills are one. Topsoil depletion is another. Composting solves both.
                     </Paragraph>
                     <Paragraph>
                         When we compost our food waste and paper products, we keep valuable organic matter from needlessly filling up landfills and generate living, nourishing soil.
                     </Paragraph>
                     <Paragraph>
-                        Soil Supporters are those who want to offer their food scraps to nearby heaps, which Soil Makers convert to soil.
+                        Very little of our food waste is composted. Few cities offer municipal composting services and few people make compost or understand what it really is. Most of the planet&#39;s 7.5 billion people send their food waste to landfills every day.
+                    </Paragraph>
+                    <Paragraph>
+                        It&#39;s a mistake we can no longer afford to make.
+                    </Paragraph>
+                    <Paragraph>
+                        The good news is that we don&#39;t need to wait for governments to change, or for global catastrophe to force us to change. We already know there is a more beautiful way.
+                    </Paragraph>
+                    <Paragraph>
+                        Why treat the planet like garbage? Make soil.
                     </Paragraph>
                 </Section>
                 { auth.currentUser ?

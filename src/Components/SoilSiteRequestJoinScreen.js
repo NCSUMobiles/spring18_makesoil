@@ -100,6 +100,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         borderRadius: 6,
         borderWidth: 1,
-        borderColor: "#d1cfcf"
+        borderColor: '#d1cfcf'
     }
 });

@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontSize: 20,
-        color: "#232323"
+        color: '#232323'
     },
     supporter: {
         marginTop: 5,
